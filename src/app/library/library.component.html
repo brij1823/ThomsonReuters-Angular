@@ -1,0 +1,39 @@
+<div class = "container">
+    <h2>Library</h2>
+
+    <form #form="ngForm" (ngSubmit) = "onSubmit(form)">
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input id="id" name="id" class="form-control" [(ngModel)] = "userSettings.id"/>
+
+            <label for="name">Book Name</label>
+            <input id="name" name="name" class="form-control" [(ngModel)] =  "userSettings.name"/>
+            
+            
+            <label for="author">Author</label>
+            <input id="author" name="author" class="form-control" [(ngModel)] = "userSettings.author"/>
+        </div>
+
+        <button class="btn btn-primary">Send</button>
+    </form>
+
+    <div class = 'table-responsive'>
+        <table class="table" *ngIf = 'books'>
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = 'let book of books'>
+                     <td>{{book.bookName}}</td>
+                     <td>{{book.bookAuthor}}</td>
+                     <td>{{book.bookID}}</td>
+                 </tr>
+            </tbody>
+
+        </table>
+
+</div>
